@@ -640,6 +640,16 @@ fn pointy_brace() {
 }
 
 #[test]
+fn image_size() {
+    html(
+        concat!("![test.png](https://image.example.com/test.png =WxH)\n",),
+        concat!(
+            "<p><img src=\"https://image.example.com/test.png%20=WxH\" alt=\"test.png\" /></p>\n"
+        ),
+    );
+}
+
+#[test]
 fn links() {
     html(
         concat!(
